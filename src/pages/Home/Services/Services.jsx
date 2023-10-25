@@ -13,11 +13,11 @@ const Services = () => {
     },[])
 
     return (
-        <div>
-            <div className='text-center'>
-                <h3 className="text-3xl text-center">Our Services</h3>
-                <h4>Our Service Area</h4>
-                <p>the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+        <div className='lg:py-10'>
+            <div className='text-center '>
+                <h3 className="text-center text-red-600">Service</h3>
+                <h4 className='text-3xl font-bold'>Our Service Area</h4>
+                <p>the majority have suffered alteration in some form, by injected humour, or randomised <br /> words which don't look even slightly believable. </p>
             </div>
             <div className='grid grid-cols-3 gap-3'>
                 {

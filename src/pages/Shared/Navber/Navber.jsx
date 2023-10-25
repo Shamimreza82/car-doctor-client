@@ -5,12 +5,15 @@ import logo from '../../../assets/logo.svg'
 const Navber = () => {
 
 
-    const navItems = <>
+    const navItems = <div className='lg:flex font-inter font-bold text-slate-700'>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/about'>About</Link></li>
-    </>
+            <li><Link to='/service'>Services</Link></li>
+            <li><Link to='/blog'>Blog</Link></li>
+            <li><Link to='/Contact'>Contact</Link></li>
+    </div>
     return (
-        <div className="navbar bg-base-100 h-28 mb-2">
+        <div className="navbar bg-base-100 h-28 mb-2 ">
             <div className="navbar-start">
                 <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -20,12 +23,12 @@ const Navber = () => {
                     {navItems}
                 </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl">
+                <Link to='/' className=" normal-case text-xl">
                     <img src={logo} alt="" />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu  px-1 flex-col">
                     {navItems}
                 </ul>
             </div>
