@@ -14,7 +14,7 @@ const PopularProducts = () => {
                 <h4 className='text-3xl font-bold'>Browse Our Products</h4>
                 <p>the majority have suffered alteration in some form, by injected humour, or randomised <br /> words which don't look even slightly believable. </p>
             </div> 
-            <div className='grid grid-cols-3 gap-5'>
+            <div className='grid md:grid-cols-3 lg:grid-cols-3 gap-5'>
                 <div className='text-center border p-4 rounded-md space-y-2  '>
                     <div className=' flex justify-center items-center bg-[#F3F3F3]'>
                         <img className='h-56 p-8  rounded-md  ' src={img6} alt="" />

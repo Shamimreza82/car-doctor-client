@@ -4,6 +4,8 @@ import About from '../About/About';
 import Services from '../Services/Services';
 import Schedule from '../Schedule/Schedule';
 import PopularProducts from '../PopularProducts/PopularProducts';
+import Team from '../Team/Team';
+import WhyChoose from '../WhyChoose/WhyChoose';
 
 
 
@@ -15,6 +17,8 @@ const Home = () => {
            <Services></Services>
            <Schedule></Schedule>
            <PopularProducts></PopularProducts>
+           <Team></Team>
+           <WhyChoose></WhyChoose>
         </div>
     );
 };
