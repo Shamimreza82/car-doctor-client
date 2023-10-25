@@ -15,41 +15,41 @@ const WhyChoose = () => {
                 <p>the majority have suffered alteration in some form, by injected humour, or randomised <br /> words which don't look even slightly believable. </p>
             </div> 
             <div className='grid md:grid-cols-6 gap-5'>
-                <div className='border rounded-lg text-center p-5'>
+                <div className='border rounded-lg text-center p-5 hover:scale-110 hover:duration-300 duration-300'>
                     <div className='flex justify-center'>
                          <img src={img4} alt="" />
                     </div>
                     <p className='font-bold'>Expert Team</p>
                 </div>
-                <div className='border bg-red-600 rounded-lg text-center p-5'>
+                <div className='border bg-red-600 rounded-lg text-center p-5 hover:scale-110 hover:duration-300 duration-300'>
                     <div className='flex justify-center'>
                          <img src={img1} alt="" />
                     </div>
-                    <p className='font-bold'>Expert Team</p>
+                    <p className='font-bold'>Timely Delivery</p>
                 </div>
-                <div className='border rounded-lg text-center p-5'>
+                <div className='border rounded-lg text-center p-5 hover:scale-110 hover:duration-300 duration-300'>
                     <div className='flex justify-center'>
                          <img src={img5} alt="" />
                     </div>
-                    <p className='font-bold'>Expert Team</p>
+                    <p className='font-bold'>24/7 Support</p>
                 </div>
-                <div className='border rounded-lg text-center p-5'>
+                <div className='border rounded-lg text-center p-5 hover:scale-110 hover:duration-300 duration-300'>
                     <div className='flex justify-center'>
                          <img src={img6} alt="" />
                     </div>
-                    <p className='font-bold'>Expert Team</p>
+                    <p className='font-bold'>Best Equipment</p> 
                 </div>
-                <div className='border rounded-lg text-center p-5'>
+                <div className='border rounded-lg text-center p-5 hover:scale-110 hover:duration-300 duration-300'>
                     <div className='flex justify-center'>
                          <img src={img2} alt="" />
                     </div>
-                    <p className='font-bold'>Expert Team</p>
+                    <p className='font-bold'>100% Guranty</p>
                 </div>
-                <div className='border  rounded-lg text-center p-5'>
+                <div className='border  rounded-lg text-center p-5 hover:scale-110 hover:duration-300 duration-300'>
                     <div className='flex justify-center'>
                          <img src={img3} alt="" />
                     </div>
-                    <p className='font-bold'>Expert Team</p>
+                    <p className='font-bold'>Timely Delivery</p>
                 </div>
             </div>
         </div>
