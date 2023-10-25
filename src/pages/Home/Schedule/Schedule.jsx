@@ -5,7 +5,7 @@ import logo3 from '../../../assets/icons/001-timetable.svg'
 
 const Schedule = () => {
     return (
-        <div className='h-48 bg-black m-auto rounded-md text-white flex justify-around items-center'>
+        <div className='h-48 bg-black m-auto rounded-md text-white flex flex-col md:flex-row justify-around items-center'>
             <div className='flex gap-3 '>
                 <img className='h-14' src={logo3} alt="" />
                 <div>
