@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.svg'
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Navber = () => {
+
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogout =()=> {
+        logOut()
+        .then()
+        .catch(error => console.error(error))
+    }
 
 
     const navItems = <div className='lg:flex font-inter font-bold text-slate-700'>
@@ -11,6 +20,11 @@ const Navber = () => {
             <li><Link to='/service'>Services</Link></li>
             <li><Link to='/blog'>Blog</Link></li>
             <li><Link to='/Contact'>Contact</Link></li>
+        {user?.email ? <>
+            <li><Link to='/allcheckout'>Checkout</Link></li>
+            <li><button onClick={handleLogout}>LogOut</button></li>
+        </> :
+        <li><Link to='/login'>login</Link></li>}
     </div>
     return (
         <div className="navbar bg-base-100 h-28 mb-2 ">

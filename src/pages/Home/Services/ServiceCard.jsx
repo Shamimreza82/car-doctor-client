@@ -1,18 +1,21 @@
-import React from 'react';
+
+import { Link } from 'react-router-dom';
+import { FaArrowRight } from "react-icons/fa";
 
 const ServiceCard = ({service}) => {
-    const {title, img, price} = service; 
+    const {_id, title, img, price} = service; 
+    console.log(service);
     return (
-        <div className="card  bg-base-100 shadow-xl">
-        <figure className="px-10 pt-10">
-            <img src={img} alt="Shoes" className="rounded-xl" />
-        </figure>
-        <div className="card-body text-center">
+        <div className="bg-slate-100 rounded-lg mt-6">
+            <figure className='p-4'>
+                <img src={img} alt="Shoes" className="rounded-xl h-64 w-full" />
+            </figure>
+        <div className="p-4">
             <h2 className="card-title text-left">{title}</h2>
-            <div className="">
+            <div >
                 <div className='flex justify-between'>
-                    <p>{price}</p>
-                    <p>More Info</p>
+                    <p className='text-left font-bold text-red-600'>${price}</p>
+                    <Link to={`/checkout/${_id}`}><FaArrowRight className='text-red-600'></FaArrowRight></Link>
                 </div>
            
             </div>
