@@ -1,12 +1,24 @@
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const ProductDetaile = () => {
 
     const services = useLoaderData()
-    console.log(services);
+
+    const {data: allServices, error, isLoading} = useQuery({
+        queryKey: ['serviceInfo'], 
+        queryFn: () => fetch('http://localhost:5000/services').then(res => res.json())
+    })
+
+    console.log(allServices);
+    if (isLoading) return 'Loading..'
+
+  if (error) return 'An error has occurred: ' + error.message
 
     const {_id, img, price, service_id, title, description, facility} = services; 
+    
 
 
     return (
@@ -34,7 +46,21 @@ const ProductDetaile = () => {
 
                     
                 </div >
-                <div className='border'>to</div>
+                <div className='border'>
+                    <div className='bg-slate-400'>
+                        <p className='text-center text-2xl font-bold '>Services</p>
+                        <div className='py-3'>
+                            {
+                               allServices.map(servides => <div className='flex justify-between hover:text-white hover:bg-red-600 hover:duration-200 mx-5 rounded-md px-5 mt-3 py-3  bg-slate-200' key={services._id}>
+                                <p>{servides.title}</p>
+                                <Link to={`/productDetailes/${servides._id}`}>All</Link>
+                               </div> ) 
+                            }
+                        </div>
+                    </div>
+                    <p>${price}</p>
+                    <Link to={`/checkout/${_id}`} className='btn'>Checkout</Link>
+                </div>
             </div>
         </div>
     );

@@ -25,6 +25,9 @@ const Navber = () => {
             <li><button onClick={handleLogout}>LogOut</button></li>
         </> :
         <li><Link to='/login'>login</Link></li>}
+        {
+            user && <li><Link to='/dashboard'>Dashboard</Link></li>
+        }
     </div>
     return (
         <div className="navbar bg-base-100 h-28 mb-2 ">

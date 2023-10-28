@@ -15,7 +15,7 @@ const ServiceCard = ({service}) => {
             <div >
                 <div className='flex justify-between'>
                     <p className='text-left font-bold text-red-600'>${price}</p>
-                    <Link to={`/checkout/${_id}`}><FaArrowRight className='text-red-600'></FaArrowRight></Link>
+                    <Link to={`/productDetailes/${_id}`}><FaArrowRight className='text-red-600'></FaArrowRight></Link>
                 </div>
            
             </div>

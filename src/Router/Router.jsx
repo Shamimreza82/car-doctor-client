@@ -9,6 +9,10 @@ import CheckOut from "../pages/CheckOut/CheckOut";
 import AllCheckout from "../pages/AllCheckout/AllCheckout";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ProductDetaile from "../pages/ProductDetaile/ProductDetaile";
+import Dashboard from "../pages/Dashboard/Dashboard";
+import AddServices from "../pages/Dashboard/AddServices";
+import UpdateServices from "../pages/Dashboard/UpdateServices";
+import AllServices from "../pages/Dashboard/AllServices/AllServices";
 
 const router = createBrowserRouter([
     {
@@ -49,6 +53,25 @@ const router = createBrowserRouter([
           path: '/productDetailes/:id', 
           element: <ProductDetaile></ProductDetaile>, 
           loader: ({params}) => fetch (`http://localhost:5000/servicesDetails/${params.id}`)
+        }, 
+        {
+          path: '/dashboard', 
+          element: <Dashboard></Dashboard>,
+          children: [
+            {
+              path: '/dashboard/addServices', 
+              element: <AddServices></AddServices>
+            }, 
+            {
+              path: '/dashboard/updateServices', 
+              element: <AllServices></AllServices>
+            }, 
+            {
+              path: '/dashboard/upService/:id', 
+              element: <UpdateServices></UpdateServices>,
+              loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+            }
+          ]
         }
       ]
     },

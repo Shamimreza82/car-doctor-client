@@ -4,16 +4,19 @@ import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import router from './Router/Router.jsx'
 import AuthProvider from './AuthProvider/AuthProvider'
-import axios from 'axios'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-axios
+
+const client = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='max-w-7xl mx-auto font-inter'>
     <React.StrictMode>
-     <AuthProvider>
-         <RouterProvider router={router}></RouterProvider>
-     </AuthProvider>
+      <QueryClientProvider client={client}>
+        <AuthProvider>
+          <RouterProvider router={router}></RouterProvider>
+      </AuthProvider>
+      </QueryClientProvider>
     </React.StrictMode>,
   </div>
   
