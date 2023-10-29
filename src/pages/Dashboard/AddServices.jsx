@@ -15,7 +15,7 @@ const AddServices = () => {
     }
     console.log(addServices);
 
-    axios.post('http://localhost:5000/services', addServices)
+    axios.post('http://localhost:5000/newServices', addServices)
     .then(res => {
         console.log(res.data);
         if(res.data.acknowledged){

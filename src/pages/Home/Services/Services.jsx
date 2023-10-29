@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ServiceCard from './ServiceCard';
 import axios from 'axios';
+import lotti from '../../../assets/animation/computer.json'
+import lotti2 from '../../../assets/animation/allll.json'
+import Lottie from 'lottie-react';
 
 const Services = () => {
 
@@ -21,6 +24,8 @@ const Services = () => {
 
     return (
         <div className='lg:py-10'>
+            <Lottie animationData={lotti} loop={true}></Lottie>
+            <Lottie animationData={lotti2} loop={true}></Lottie>
             <div className='text-center '>
                 <h3 className="text-center text-red-600">Service</h3>
                 <h4 className='text-3xl font-bold'>Our Service Area</h4>

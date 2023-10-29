@@ -31,7 +31,7 @@ const AuthProvider = ({children}) => {
       const unSubCribe =  onAuthStateChanged(auth, carrentUser => {
             setUser(carrentUser)
             setLoading(false)
-            console.log('Current User', carrentUser);
+            // console.log('Current User', carrentUser);
         })
         return () => {
             unSubCribe()

@@ -46,9 +46,6 @@ const AllServices = () => {
   }
 
 
-  const handleupdateService = (_id) => {
-    console.log(_id);
-  }
 
   return (
     <div>

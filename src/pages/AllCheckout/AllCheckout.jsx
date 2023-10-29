@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import auth from '../../firebase/firebaseConfig';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import CheckOut from '../CheckOut/CheckOut';
 import CheckoutROW from './CheckoutROW';
 import axios from 'axios';
 
@@ -12,6 +10,8 @@ const AllCheckout = () => {
 
     const url = `http://localhost:5000/checkout?email=${user?.email}`
 
+    const sum = checkouts.reduce((a,b) => a + parseInt(b.price), 0 )
+    console.log(sum);
     useEffect(()=> {
             // fetch (url)
             // .then(res => res.json())
@@ -19,6 +19,9 @@ const AllCheckout = () => {
             axios.get(url, {withCredentials: true})
             .then(res => {
               setCheckout(res.data);
+            })
+            .catch(error => {
+              console.error(error)
             })
     },[url])
 
@@ -102,6 +105,7 @@ const AllCheckout = () => {
                 </tbody>
             </table>
             </div>
+            <p className='text-right'>Total Cost: {sum}</p>
         </div>
     );
 };

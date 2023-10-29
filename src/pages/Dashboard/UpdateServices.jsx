@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 
@@ -17,6 +18,14 @@ const UpdateServices = () => {
             description: form.description.value
         }
         console.log(addServices);
+
+        axios.put(`http://localhost:5000/services/${updateServices._id}`, addServices)
+        .then(res => {
+            console.log(res.data);
+        })
+        .catch((error) => {
+            console.error('Error updating data', error);
+          });
     }
 
 

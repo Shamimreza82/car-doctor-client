@@ -1,10 +1,19 @@
 
+import useRecipies from '../../../Hooks/useRecipies';
 import img1 from '../../../assets/images/banner/1.jpg'
 import img2 from '../../../assets/images/banner/2.jpg'
 import img3 from '../../../assets/images/banner/3.jpg'
 import img4 from '../../../assets/images/banner/4.jpg'
 
+
 const Banner = () => {
+
+    const {data, error, isLoading, isFetching, refetch} = useRecipies(); 
+    console.log(data);
+
+
+    
+
     return (
         <div className="carousel h-[600px]">
             <div id="slide1" className="carousel-item relative">
@@ -86,6 +95,9 @@ const Banner = () => {
                 </div>
             </div>
          </div>
+
+
+
     );
 };
 

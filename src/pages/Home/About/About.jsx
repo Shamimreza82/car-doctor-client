@@ -1,10 +1,9 @@
-import React from 'react';
 import person from '../../../assets/images/about_us/person.jpg'
 import pars from '../../../assets/images/about_us/parts.jpg'
 
 const About = () => {
     return (
-        <div className="hero md:my-16 md:py-28 py-5 ">
+        <div className="hero md:my-16 py-5 ">
         <div className="hero-content flex-col lg:flex-row ">
             <div className='md:w-1/2 relative'>
                 <img src={person} className=" w-3/4 rounded-lg shadow-2xl" />

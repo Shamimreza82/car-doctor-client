@@ -3,7 +3,8 @@ import logo from '../../../assets/logo.svg'
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200 text-base-content">
+        <div className=' bg-[#151515]'>
+            <footer className="footer p-10  max-w-7xl m-auto text-white">
             <aside>
                 <img src={logo} alt="" />
                 <p>ACME Industries Ltd.<br/>Providing reliable tech since 1992</p>
@@ -29,6 +30,7 @@ const Footer = () => {
                 <a className="link link-hover">Cookie policy</a>
             </nav>
         </footer>
+        </div>
     );
 };
 

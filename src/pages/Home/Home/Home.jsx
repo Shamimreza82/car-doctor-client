@@ -11,7 +11,7 @@ import WhyChoose from '../WhyChoose/WhyChoose';
 
 const Home = () => {
     return (
-        <div>
+        <div className='max-w-7xl m-auto'>
            <Banner></Banner>
            <About></About>
            <Services></Services>
