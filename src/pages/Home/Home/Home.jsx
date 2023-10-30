@@ -6,6 +6,8 @@ import Schedule from '../Schedule/Schedule';
 import PopularProducts from '../PopularProducts/PopularProducts';
 import Team from '../Team/Team';
 import WhyChoose from '../WhyChoose/WhyChoose';
+import Swiper from '../../../component/Swiper/Swiper';
+import CardSwiper from '../../../component/CardSwiper/CardSwiper';
 
 
 
@@ -18,6 +20,8 @@ const Home = () => {
            <Schedule></Schedule>
            <PopularProducts></PopularProducts>
            <Team></Team>
+           <Swiper></Swiper>
+           <CardSwiper></CardSwiper>
            <WhyChoose></WhyChoose>
         </div>
     );
