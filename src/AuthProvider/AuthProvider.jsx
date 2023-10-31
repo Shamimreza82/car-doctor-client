@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebaseConfig";
+import axios from "axios";
 
 
 export const AuthContext = createContext()
@@ -29,9 +30,28 @@ const AuthProvider = ({children}) => {
 
     useEffect(()=> {
       const unSubCribe =  onAuthStateChanged(auth, carrentUser => {
+
+            const userEmail = carrentUser?.email || user?.email;
+            console.log(userEmail);
+            const loggedUser = {email: userEmail}
             setUser(carrentUser)
             setLoading(false)
-            // console.log('Current User', carrentUser);
+            console.log('Current User', carrentUser);
+
+            
+           
+            if(carrentUser){
+                axios.post('http://localhost:5000/jwt', loggedUser, {withCredentials: true})
+                .then(res => {
+                    console.log('token repose', res.data);
+                })
+            } 
+            else {
+                axios.post('http://localhost:5000/logout', loggedUser, {withCredentials: true})
+                .then(res => {
+                    console.log(res.data);
+                })
+            }
         })
         return () => {
             unSubCribe()

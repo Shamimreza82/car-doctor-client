@@ -1,29 +1,34 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import CheckoutROW from './CheckoutROW';
-import axios from 'axios';
+import useAxios from '../../Hooks/useAxios';
 
 const AllCheckout = () => {
 
     const {user} = useContext(AuthContext)
     const [checkouts, setCheckout] = useState([])
+    const axiosSecure = useAxios()
 
-    const url = `http://localhost:5000/checkout?email=${user?.email}`
 
+    const url = `/checkout?email=${user?.email}`
     const sum = checkouts.reduce((a,b) => a + parseInt(b.price), 0 )
     console.log(sum);
     useEffect(()=> {
             // fetch (url)
             // .then(res => res.json())
             // .then(data => setCheckout(data))
-            axios.get(url, {withCredentials: true})
+            // axios.get(url, {withCredentials: true})
+            // .then(res => {
+            //   setCheckout(res.data);
+            // })
+            // .catch(error => {
+            //   console.error(error)
+            // })
+            axiosSecure.get(url)
             .then(res => {
-              setCheckout(res.data);
-            })
-            .catch(error => {
-              console.error(error)
-            })
-    },[url])
+                setCheckout(res.data);
+              })
+    },[url, axiosSecure])
 
     console.log(checkouts);
 

@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+
 import { Link,} from "react-router-dom";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
 import logoImage from '../../assets/images/login/login.svg'
 import { FaGoogle } from "react-icons/fa";
 import axios from "axios";
+import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
+  const {signIn} = useAuth()
 
-    const {signIn} = useContext(AuthContext)
     // const location = useLocation()
     // const navigate = useNavigate()
     // console.log(location);
@@ -23,10 +23,10 @@ const Login = () => {
     signIn(email, password)
     .then(result => {
       const loggedInUser = result.user
-        console.log(loggedInUser); 
+        // console.log(loggedInUser); 
          // navigate(location?.state ? location?.state : '/')
       const user = {email: email}
-      console.log(user);
+      // console.log(user);
 
       axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
       .then(res => {

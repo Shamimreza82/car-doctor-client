@@ -4,23 +4,27 @@ import axios from 'axios';
 import lotti from '../../../assets/animation/computer.json'
 import lotti2 from '../../../assets/animation/allll.json'
 import Lottie from 'lottie-react';
+import useSevices from '../../../Hooks/useSevices';
 
 const Services = () => {
 
-    const [services, setServices] = useState([])
+    const services = useSevices()
 
-    useEffect(() => {
-        // fetch('http://localhost:5000/services')
-        // .then(res => res.json())
-        // .then(data => setServices(data))
+    // const [services, setServices] = useState([])
 
-        axios.get('http://localhost:5000/services')
-        .then(res => {
-            setServices(res.data)
-        })
+    // useEffect(() => {
+    //     // fetch('http://localhost:5000/services')
+    //     // .then(res => res.json())
+    //     // .then(data => setServices(data))
 
-    },[])
-    console.log(services);
+    //     axios.get('http://localhost:5000/services')
+    //     .then(res => {
+    //         setServices(res.data)
+    //     })
+
+    // },[])
+
+ 
 
     return (
         <div className='lg:py-10'>
