@@ -1,34 +1,30 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import CheckoutROW from './CheckoutROW';
-import useAxios from '../../Hooks/useAxios';
+import axios from 'axios';
 
 const AllCheckout = () => {
 
     const {user} = useContext(AuthContext)
     const [checkouts, setCheckout] = useState([])
-    const axiosSecure = useAxios()
+  
 
 
-    const url = `/checkout?email=${user?.email}`
+    const url = `http://localhost:5000/checkout?email=${user?.email}`
     const sum = checkouts.reduce((a,b) => a + parseInt(b.price), 0 )
     console.log(sum);
     useEffect(()=> {
             // fetch (url)
             // .then(res => res.json())
             // .then(data => setCheckout(data))
-            // axios.get(url, {withCredentials: true})
-            // .then(res => {
-            //   setCheckout(res.data);
-            // })
-            // .catch(error => {
-            //   console.error(error)
-            // })
-            axiosSecure.get(url)
+            axios.get(url, {withCredentials: true})
             .then(res => {
-                setCheckout(res.data);
-              })
-    },[url, axiosSecure])
+              setCheckout(res.data);
+            })
+            .catch(error => {
+              console.error(error)
+            })
+    },[url])
 
     console.log(checkouts);
 
@@ -101,7 +97,7 @@ const AllCheckout = () => {
                 </thead>
                 <tbody>
                 {
-                    checkouts.map(checkout => <CheckoutROW key={checkout._id}
+                    checkouts?.map(checkout => <CheckoutROW key={checkout._id}
                         handleDeleted ={handleDeleted}
                         handleconfrom ={handleconfrom}
                         checkout={checkout}></CheckoutROW>)
@@ -110,7 +106,7 @@ const AllCheckout = () => {
                 </tbody>
             </table>
             </div>
-            <p className='text-right'>Total Cost: {sum}</p>
+           
         </div>
     );
 };

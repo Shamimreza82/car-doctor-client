@@ -2,6 +2,8 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebaseConfig";
 import axios from "axios";
+import FirstLook from "../pages/FirstLook/FirstLook";
+
 
 
 export const AuthContext = createContext()
@@ -11,6 +13,7 @@ const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+
 
 
     const createUser = (email, password) => {
@@ -29,25 +32,15 @@ const AuthProvider = ({children}) => {
     }
 
     useEffect(()=> {
-      const unSubCribe =  onAuthStateChanged(auth, carrentUser => {
-
-            const userEmail = carrentUser?.email || user?.email;
+      const unSubCribe =  onAuthStateChanged(auth, currentUser => {
+            const userEmail = currentUser?.email || user?.email
             console.log(userEmail);
-            const loggedUser = {email: userEmail}
-            setUser(carrentUser)
+            setUser(currentUser)
             setLoading(false)
-            console.log('Current User', carrentUser);
-
-            
-           
-            if(carrentUser){
-                axios.post('http://localhost:5000/jwt', loggedUser, {withCredentials: true})
-                .then(res => {
-                    console.log('token repose', res.data);
-                })
-            } 
-            else {
-                axios.post('http://localhost:5000/logout', loggedUser, {withCredentials: true})
+            console.log('Current User in auth state', currentUser);
+            if(currentUser) {
+                const loginEmail = {email: userEmail}
+                axios.post('http://localhost:5000/jwt', loginEmail, {withCredentials: true} )
                 .then(res => {
                     console.log(res.data);
                 })

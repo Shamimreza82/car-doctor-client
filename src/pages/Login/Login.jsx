@@ -2,7 +2,6 @@
 import { Link,} from "react-router-dom";
 import logoImage from '../../assets/images/login/login.svg'
 import { FaGoogle } from "react-icons/fa";
-import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
@@ -22,24 +21,7 @@ const Login = () => {
 
     signIn(email, password)
     .then(result => {
-      const loggedInUser = result.user
-        // console.log(loggedInUser); 
-         // navigate(location?.state ? location?.state : '/')
-      const user = {email: email}
-      // console.log(user);
-
-      axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
-      .then(res => {
-        console.log(res.data);
-       if(res.data.success)[
-        alert('token save in cookeis')
-       ]
-      })
-      .catch(error => {
-        console.log(error);
-      })
-
-     
+      console.log(result.user);
     })
     .catch(error => console.error(error))
    }
